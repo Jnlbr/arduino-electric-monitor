@@ -1,0 +1,8 @@
+{
+  "name": "Arduino-electric-monitor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git clone https://Jnlbr@bitbucket.org/Jnlbr/arduino-electric-monitor.git",
+  "author": "Jean Lambert",
+  "license": "MIT"
+}
