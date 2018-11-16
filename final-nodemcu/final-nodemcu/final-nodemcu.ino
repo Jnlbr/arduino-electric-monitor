@@ -15,7 +15,7 @@ String readString = "";
 bool isConnected = false;
 const char* ssid     = "Inter u suck"; // Inter u suck
 const char* password = "t42af78va1aqua"; // t42af78va1aqua
-const char* add = "http://192.168.0.108:10036/hardware/params/add";
+const char* add = "http://192.168.0.104:10036/hardware/params/add";
 
 void setup() {
   Serial.begin(BAUD_RATE);
@@ -30,7 +30,7 @@ void setup() {
     while(wiFiMulti.run() != WL_CONNECTED) {
         delay(100);
     }
-    webSocket.beginSocketIO("192.168.0.108", 10036);    
+    webSocket.beginSocketIO("192.168.0.104", 10036);    
     webSocket.onEvent(webSocketEvent);
 }
 
@@ -42,12 +42,9 @@ void loop() {
     char c = Arduino.read(); // Read the character
     readString += c; // Add the character to the string
   }
-
   readString.trim();
-
   if (readString.length() > 0) { // If a string has been read...
-    sendParams(readString);
-    
+    sendParams(readString);    
     Serial.println("Received: " + readString); // Send the parsed string to Serial for debugging
     readString = ""; // Clear the string
   }

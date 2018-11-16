@@ -1,7 +1,7 @@
 void sendParams(String params) {
  
  if(wiFiMulti.run() == WL_CONNECTED) {
-    Serial.println("Is connected");
+//    Serial.println("Is connected");
     HTTPClient http;
     http.begin(add);
     http.addHeader("Content-Type", "application/json");
