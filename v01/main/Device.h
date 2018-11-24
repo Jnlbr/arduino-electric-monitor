@@ -6,7 +6,7 @@
 class Device {
   public:
     Device();
-    Device(int id, String code, String name, bool status, int volt);
+    Device(int id, String name, bool status, int volt);
     void setId(int id);
     int getId();
     void setCode(String code);

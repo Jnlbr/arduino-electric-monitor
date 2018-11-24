@@ -6,7 +6,7 @@
 #define BAUD_RATE 9600
 
 SoftwareSerial node(10, 11); // RX, TX
-Device device(21, "aef7842", "LED_SENSOR", true, 5);
+Device device(21, "LED_SENSOR", true, 5);
 
 // Pin asignado al modulo acs712;
 const int sensorPIN = A0;

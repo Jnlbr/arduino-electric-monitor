@@ -13,9 +13,9 @@ WebSocketsClient webSocket;
 SoftwareSerial Arduino(13, 15, false, 256);
 String readString = "";
 bool isConnected = false;
-const char* ssid     = "Inter u suck"; // Inter u suck
-const char* password = "t42af78va1aqua"; // t42af78va1aqua
-const char* add = "http://192.168.0.104:10036/hardware/params/add";
+const char* ssid     = "Jean"; // Inter u suck
+const char* password = "123567890"; // t42af78va1aqua
+const char* add = "http://192.168.43.205:10036/hardware/params/add";
 
 void setup() {
   Serial.begin(BAUD_RATE);
@@ -30,7 +30,7 @@ void setup() {
     while(wiFiMulti.run() != WL_CONNECTED) {
         delay(100);
     }
-    webSocket.beginSocketIO("192.168.0.104", 10036);    
+    webSocket.beginSocketIO("192.168.43.205", 10036);    
     webSocket.onEvent(webSocketEvent);
 }
 

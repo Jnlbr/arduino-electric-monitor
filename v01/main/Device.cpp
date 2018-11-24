@@ -1,9 +1,8 @@
 #include "Device.h"
 
 Device::Device() {}
-Device::Device(int id, String code, String name, bool status, int volt) {
+Device::Device(int id, String name, bool status, int volt) {
   _id = id;
-  _code = code;
   _name = name;
   _status = status;
   _volt = volt;
