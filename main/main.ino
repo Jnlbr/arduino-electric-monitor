@@ -1,9 +1,11 @@
 #include <SoftwareSerial.h>
 #include <ArduinoJson.h>
+#include "ACS712.h"
 #define AVG_NUM 100
 #define BAUD_RATE 9600
 
 SoftwareSerial Node(10, 11); // RX, TX
+ACS712 sensor(ACS712_30A, A1);
 // Pin asignado al modulo acs712;
 const int sensorPIN = A0;
 // Pin asignado al relay;
@@ -22,13 +24,15 @@ void setup() {
   pinMode(relay, OUTPUT);
   // Se coloca el estado inicial;
   digitalWrite(relay, relayState);
+  sensor.calibrate();
 }
 
 void loop() {
   float voltage = readVoltage(sensorPIN) - 2.5;
   float current = calculateCurrent(voltage);
+//  float current = sensor.getCurrentDC();
   sendToNode(current);
-  Serial.println("Voltage: " + String(voltage));
+//  Serial.println("Voltage: " + String(voltage));
   Serial.println("Current: " + String(current));
   
   wifiEvent();

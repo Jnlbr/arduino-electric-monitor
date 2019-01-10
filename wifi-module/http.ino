@@ -31,6 +31,9 @@ void activeDevice(String active) {
       String payload = http.getString();
       if(httpCode == 200) {
         Serial.println("Success: \n" + payload);
+        // CODE ADDED! This turn OFF or ON the device based on the status save in DB;
+        delay(3000);
+        Arduino.print(payload);
       } else {
         Serial.println("Failure: \n" + payload);
       }
